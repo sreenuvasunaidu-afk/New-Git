@@ -2,10 +2,10 @@ pipeline {
     agent any
     stages {
         stage('Checkout Code') {
-      steps {
-        echo 'Pulling latest code from GitHub...'
-        git branch: 'main', url: 'https://github.com/<your-username>/<your-repo>.git'
-      }
+        steps {
+          echo 'Pulling latest code from GitHub...'
+          git branch: 'main', url: 'https://github.com/<your-username>/<your-repo>.git'
+          }
     }
         stage('Ansible Configure') {
             steps {
