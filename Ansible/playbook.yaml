@@ -1,1 +1,25 @@
+- hosts: jenkins_ec2
+  become: yes
+  tasks:
+    - name: Update apt
+      apt:
+        update_cache: yes
 
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Add user to docker group
+      user:
+        name: ubuntu
+        groups: docker
+        append: yes
+
+    - name: Pull nginx container
+      docker_container:
+        name: webapp
+        image: nginx:latest
+        state: started
+        ports:
+          - "80:80"
