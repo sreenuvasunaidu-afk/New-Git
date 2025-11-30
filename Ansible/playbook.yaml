@@ -16,10 +16,20 @@
         groups: docker
         append: yes
 
+    - name: Install pip for Python3
+      apt:
+        name: python3-pip
+        state: present
+        update_cache: yes
+
+    - name: Install Docker SDK for Python
+      pip:
+        name: docker
+
     - name: Pull nginx container
       docker_container:
         name: webapp
         image: nginx:latest
         state: started
         ports:
-          - "80:80"
+          - "80:80"  
