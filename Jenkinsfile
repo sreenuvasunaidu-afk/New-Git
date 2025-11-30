@@ -18,7 +18,7 @@ pipeline {
             steps {
                 dir('app') {
                     sh 'docker build -t mywebapp .'
-                    sh 'docker run -d -p 80:80 mywebapp'
+                    sh 'docker run -d -p 81:80 mywebapp'
                 }
             }
         }
