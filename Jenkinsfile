@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Terraform Apply') {
-            steps {
-                dir('terraform') {
-                    sh 'terraform init'
-                    sh 'terraform apply -auto-approve'
-                }
-            }
-        }
         stage('Ansible Configure') {
             steps {
                 dir('ansible') {
